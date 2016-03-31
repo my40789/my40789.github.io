@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="myApp">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.3/angular-cookies.min.js"></script>
+    <script>
+    
+        var myApp = angular.module('myApp',['ngCookies']);
+        myApp.controller('myCtrl', function($cookies){
+            $cookies.put('myFavorite', 'oatmeal');
+            
+            alert($cookies.get('myFavorite'));
+            
+        });
+    
+    </script>
 </head>
-<body>
+<body ng-controller="myCtrl">
 	<h1>Hello World!</h1>
 </body>
 </html>
